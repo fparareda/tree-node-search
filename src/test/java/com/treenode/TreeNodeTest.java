@@ -44,4 +44,17 @@ public class TreeNodeTest {
 
         assertEquals(treeNodeToCheck.findFirstCommonAncestor(treeNodeToCompare), treeNodeWithGrandTreeNode);
     }
+
+    @Test
+    public void given_treenode_with_four_levels_with_two_levels_of_ancestor() {
+        TreeNode treeNodeParentOfAncestor = new TreeNode(null);
+        TreeNode treeNodeAncestor = new TreeNode(treeNodeParentOfAncestor);
+        TreeNode treeNodeAncestorChild1 = new TreeNode(treeNodeAncestor);
+        TreeNode treeNodeAncestorChild2 = new TreeNode(treeNodeAncestor);
+        TreeNode treeNodeAncestorChild1Child1 = new TreeNode(treeNodeAncestorChild1);
+        TreeNode treeNodeAncestorChild2Child1 = new TreeNode(treeNodeAncestorChild2);
+        TreeNode treeNodeAncestorChild2Child1Child = new TreeNode(treeNodeAncestorChild1Child1);
+
+        assertEquals(treeNodeAncestorChild2Child1Child.findFirstCommonAncestor(treeNodeAncestorChild2Child1), treeNodeAncestor);
+    }
 }
